@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}家庭云存储{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">家庭云存储</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav  navbar-right">
+                <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+                <li><a href="{{ url_for('auth.register') }}">注册</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+    {% block page_content %}
+    <div class="page-header">
+        <h1>Login</h1>
+    </div>
+    <div class="col-md-4">
+        {{ wtf.quick_form(form) }}
+        <br>
+        <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+    </div>
+    {% endblock %}
+{% endblock %}
